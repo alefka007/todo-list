@@ -1,0 +1,28 @@
+.form {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    height: 100vh;
+}
+
+.form input, textarea, button {
+    width: 100%;
+}
+
+.form textarea {
+    min-height: 150px;
+    border: none;
+    border-radius: var(--border-radius);
+    resize: none;
+    outline: none;
+    padding: 10px;
+}
+
+.inputContainer {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+}

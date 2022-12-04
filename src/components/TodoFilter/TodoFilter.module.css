@@ -1,0 +1,14 @@
+.search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    border-radius: var(--border-radius);
+    border-color: var(--primary-color);
+    border-style: solid;
+    padding-bottom: 38px;
+}
+
+.search legend {
+    font-size: 24px;
+}

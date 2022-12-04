@@ -1,0 +1,12 @@
+.container {
+    width: 60%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.title {
+    font-size: 40px;
+    font-style: italic;
+}

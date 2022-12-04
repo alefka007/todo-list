@@ -1,0 +1,10 @@
+.select {
+    border: none;
+    outline: none;
+    border-radius: var(--border-radius);
+    padding: 10px;
+}
+
+.select option {
+    text-align: center;
+}
