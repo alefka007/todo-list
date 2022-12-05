@@ -5,14 +5,16 @@ import Input from '../../components/UI/input/Input';
 import style from './TodoForm.module.css';
 import { addTodo } from '../../redux/slices/todoSlice'
 import { nanoid } from '@reduxjs/toolkit';
+import { useNavigate } from 'react-router-dom';
 
-const TodoForm = ({ setIsHome }) => {
+const TodoForm = () => {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [startDate, setStartDate] = useState('');
     const [endDate, setEndDate] = useState('');
 
     const dispatch = useDispatch();
+    const navigate = useNavigate()
 
     const onTitleChanged = e => setTitle(e.target.value);
     const onDescriptionChanged = e => setDescription(e.target.value);
@@ -36,8 +38,8 @@ const TodoForm = ({ setIsHome }) => {
             setDescription('');
             setStartDate('');
             setEndDate('');
-            setIsHome(true)
 
+            navigate('/');
         }
 
     }

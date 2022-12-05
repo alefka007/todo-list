@@ -24,6 +24,8 @@
   --bg-color-main: rgba(58, 75, 86, .4);
   --primary-color: rgba(58, 75, 86, .7);
   --border-radius: 5px;
+  --box-shadow: 2px 2px 7px #000;
+  --box-shadow-active: 4px 4px 8px #000;
 }
 
 

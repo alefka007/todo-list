@@ -4,25 +4,20 @@
     border: none;
     outline: none;
     border-radius: var(--border-radius);
-    box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+    box-shadow: var(--box-shadow);
     cursor: pointer;
     padding: 10px 15px;
     transition: all 250ms;
     font-family: var(--main-fonts);
 }
 
-.button:hover,
-.button:focus {
-    background-color: #fb8332;
-    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
-}
-
 .button:hover {
+    background-color: #fb8332;
+    box-shadow: var(--box-shadow-active);
     transform: translateY(-1px);
 }
 
 .button:active {
     background-color: #c85000;
-    box-shadow: rgba(0, 0, 0, .06) 0 2px 4px;
     transform: translateY(0);
 }

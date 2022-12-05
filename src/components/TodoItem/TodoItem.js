@@ -17,7 +17,8 @@ const TodoItem = ({ todo }) => {
     } 
 
     return (
-        <div className={todo.completed ? style.container + ' ' + style.completed : style.container}>
+        <div className={todo.completed ?
+            style.container + ' ' + style.completed : style.container}>
             <div className={style.content}>
                 <div>
                     <span className={style.title}>{todo.title}</span>
@@ -29,9 +30,13 @@ const TodoItem = ({ todo }) => {
                 </div>
             </div>
             <div className={style.buttons}>
-                <label>Выполнена: <Input checked={todo.completed} onChange={(e) => onChangeHandler(e)} type='checkbox' /></label>
+                <label>Выполнена: 
+                    <Input checked={todo.completed} 
+                    onChange={(e) => onChangeHandler(e)} 
+                    type='checkbox' />
+                </label>
                 <Button onClick={deleteHandler}>Удалить</Button>
-                <Button>Редактировать</Button>
+                <Button className={style.editButton}>Редактировать</Button>
             </div>
         </div>
     )

@@ -54,3 +54,19 @@
     align-items: center;
     justify-content: center;
 }
+
+.editButton {
+    composes: button from '../UI/button/Button.module.css';
+    background-color: green;
+}
+
+.editButton:hover {
+    background-color: rgb(100, 168, 100);
+    box-shadow: var(--box-shadow-active);
+    transform: translateY(-1px);
+}
+
+.editButton:active {
+    background-color: darkgreen;
+    transform: translateY(0);
+}
