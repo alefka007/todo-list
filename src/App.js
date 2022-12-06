@@ -11,7 +11,7 @@ function App() {
         <div className = "App">
             <Routes>
                 <Route index path="/" element={<Home />} />
-                <Route path="/form" element={<TodoForm />} />
+                <Route path="/create" element={<TodoForm />} />
                 <Route path="*" element={<NoMatch />} />
             </Routes>
         </div>

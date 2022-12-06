@@ -1,9 +1,12 @@
 import React from 'react';
 import style from './Select.module.css';
 
-const Select = ({ options }) => {
+const Select = ({ options, value, onChange }) => {
     return (
-        <select className={style.select}>
+        <select
+            value={value}
+            onChange={e => onChange(e.target.value)} 
+            className={style.select}>
             {options.map(o => {
                 return <option key={o.name} value={o.value} >{o.name}</option>
             })}
