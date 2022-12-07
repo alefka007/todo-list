@@ -1,7 +1,7 @@
 .alert {
     position: absolute;
     font-size: 20px;
-    top: 200px;
+    top: 150px;
     color: red;
     animation: .5s showAlert ease-in-out; 
 }
