@@ -33,13 +33,12 @@ const useSortedDate = (todoList, filterTodo) => {
             return sortedCompleted 
         }
         
-     
     }, [filterTodo.startDate, filterTodo.endDate, sortedCompleted ])
 
     return sortedDateTodo
 }
 
-export const useSortTodo = (todoList, filterTodo) => {
+export const useSortedTodo = (todoList, filterTodo) => {
     const sortedDate = useSortedDate(todoList, filterTodo);
 
     const sortedAndSearchTodo = useMemo(() => {

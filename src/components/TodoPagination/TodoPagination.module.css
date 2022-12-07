@@ -5,7 +5,7 @@
     gap: 5px;
 }
 
-.numberPage {
+.btnNumber {
     width: 40px;
     height: 40px;
     display: flex;
@@ -14,4 +14,9 @@
     align-items: center;
     color: white;
     cursor: pointer;
+    border-radius: var(--border-radius);
+}
+
+.activeButton {
+    background-color: rgb(83, 78, 78);
 }

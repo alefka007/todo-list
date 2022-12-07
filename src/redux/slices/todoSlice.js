@@ -21,13 +21,13 @@ const todoSlice = createSlice({
     initialState,
     reducers: {
         addTodo: (state, action) => {
-            state.todoList.push(action.payload);
+            state.todoList.unshift(action.payload);
             const todoList = window.localStorage.getItem('todoList');
 
             if(todoList) {
                 const todoListArr = JSON.parse(todoList);
 
-                todoListArr.push({
+                todoListArr.unshift({
                     ...action.payload
                 })
 

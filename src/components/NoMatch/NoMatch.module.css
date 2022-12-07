@@ -1,0 +1,8 @@
+.noMatch {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: rgb(99, 86, 86);
+    font-size: 20px;
+}

@@ -3,12 +3,12 @@ import Input from '../UI/input/Input';
 import style from './TodoItem.module.css';
 import Button from '../UI/button/Button';
 import { useDispatch } from 'react-redux';
-import { deleteTodo, toggleTodo } from '../../redux/slices/todoSlice';
+import { toggleTodo, deleteTodo } from '../../redux/slices/todoSlice';
 
-const TodoItem = ({ todo }) => {
+const TodoItem = ({ todo, setVisible, removeTodo}) => {
     const dispatch = useDispatch();
 
-    const deleteHandler = () => {
+    removeTodo = () => {
         dispatch(deleteTodo(todo.id))
     }
 
@@ -35,7 +35,7 @@ const TodoItem = ({ todo }) => {
                     onChange={(e) => onChangeHandler(e)} 
                     type='checkbox' />
                 </label>
-                <Button onClick={deleteHandler}>Удалить</Button>
+                <Button onClick={() => setVisible(true)}>Удалить</Button>
                 <Button className={style.editButton}>Редактировать</Button>
             </div>
         </div>

@@ -1,8 +1,11 @@
-import React from 'react'
+import React from 'react';
+import style from './NoMatch.module.css';
 
 const NoMatch = () => {
     return (
-        <div>NoMatch</div>
+        <div className={style.noMatch}>
+            Упс! Такой страницы не существует
+        </div>
     )
 }
 
