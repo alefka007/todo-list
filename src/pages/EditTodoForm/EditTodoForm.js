@@ -1,19 +1,19 @@
+import style from './EditTodoForm.module.css';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import Button from '../../components/UI/button/Button';
 import Input from '../../components/UI/input/Input';
-import style from './TodoForm.module.css';
-import { nanoid } from '@reduxjs/toolkit';
 import { useNavigate } from 'react-router-dom';
 import Alert from '../../components/Alert/Alert';
-import { addTodo } from '../../redux/slices/todoSlice';
+import { editTodo } from '../../redux/slices/todoSlice';
 
-const TodoForm = () => {
-    const [title, setTitle] = useState('');
-    const [description, setDescription] = useState('');
-    const [startDate, setStartDate] = useState('');
-    const [endDate, setEndDate] = useState('');
+const EditTodoForm = ({todo}) => {
+    const [title, setTitle] = useState(todo.title || '');
+    const [description, setDescription] = useState(todo.description || '');
+    const [startDate, setStartDate] = useState(todo.startDate || '');
+    const [endDate, setEndDate] = useState(todo.endDate || '');
     const [showAlert, setShowAlert] = useState(false);
+
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -39,9 +39,9 @@ const TodoForm = () => {
         e.preventDefault();
 
         if(title && description && startDate && endDate) {
-            dispatch(addTodo({
-                id: nanoid(),
-                completed: false,
+            dispatch(editTodo({
+                id: todo.id,
+                completed: todo.completed,
                 title,
                 description,
                 startDate,
@@ -64,7 +64,7 @@ const TodoForm = () => {
     return (
         <form onSubmit={(e) => submitHandler(e)} className={style.form}>
             {showAlert && <Alert />}
-            <h3>Добавление задачи</h3>
+            <h2>Редактирование задачи</h2>
             <label>Название
                 <Input onChange={onTitleChanged} value={title} type='text' />
             </label>
@@ -87,4 +87,4 @@ const TodoForm = () => {
     )
 }
 
-export default TodoForm
+export default EditTodoForm

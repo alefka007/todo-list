@@ -1,0 +1,18 @@
+.alert {
+    position: absolute;
+    font-size: 20px;
+    top: 200px;
+    color: red;
+    animation: .5s showAlert ease-in-out; 
+}
+
+@keyframes showAlert {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1; 
+    }
+
+}

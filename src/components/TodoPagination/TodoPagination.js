@@ -12,7 +12,7 @@ const TodoPagination = ({totalTodo, todoPerPages, paginate, currentPage}) => {
         <div className={style.container}>
             {pageNumber.map(number => (
                 <div 
-                    onClick={() => paginate(number)} 
+                    onClick={() => paginate(number)}
                     key={number}  
                     className={number === currentPage ?
                         style.btnNumber + ' ' + style.activeButton : style.btnNumber}>     

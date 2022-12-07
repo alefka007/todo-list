@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import TodoPagination from '../../components/TodoPagination/TodoPagination';
 import Modal from '../../components/UI/modal/Modal';
 
-const Home = () => {
+const Home = ({editTodo}) => {
 
     const [filterTodo, setFilterTodo] = useState({ 
         searchQuery: '', 
@@ -19,13 +19,14 @@ const Home = () => {
     });
     const [currentPage, setCurrentPage] = useState(1);
     const [visible, setVisible] = useState(false);
+    const [todoId, setTodoId] = useState(null);
     const todoPerPages = 15;
 
 
     let navigate = useNavigate();
 
     const paginate = (number) => setCurrentPage(number);
-    const removeTodo = () => {}; 
+    const deleteTodo = (id) => setTodoId(id); 
 
     const todoList = useSelector(state => state.todo.todoList);
     const sortedTodo = useSortedTodo(todoList, filterTodo);
@@ -39,7 +40,7 @@ const Home = () => {
             <Modal
                 visible={visible}
                 setVisible={setVisible}
-                removeTodo={removeTodo}  
+                todoId={todoId}  
             />
             <h1 className={style.title}>Cписок задач</h1>
             <TodoFilter
@@ -48,11 +49,16 @@ const Home = () => {
                 setCurrentPage={setCurrentPage} 
             />
             <Button onClick={() => navigate('/create')}>ДОБАВИТЬ ЗАДАЧУ</Button>
-            <TodoList
-                removeTodo={removeTodo} 
-                sortedTodoList={visibleTodo}
-                setVisible={setVisible}  
-            />
+            {todoList.length ?
+                <TodoList
+                    editTodo={editTodo}
+                    deleteTodo={deleteTodo} 
+                    sortedTodoList={visibleTodo}
+                    setVisible={setVisible}  
+                /> :
+                <h2>У вас пока нет задач!</h2>
+            }
+
             <TodoPagination 
                 todoPerPages={todoPerPages} 
                 totalTodo={todoList.length}

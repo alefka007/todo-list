@@ -3,18 +3,23 @@ import Input from '../UI/input/Input';
 import style from './TodoItem.module.css';
 import Button from '../UI/button/Button';
 import { useDispatch } from 'react-redux';
-import { toggleTodo, deleteTodo } from '../../redux/slices/todoSlice';
+import { toggleTodo } from '../../redux/slices/todoSlice';
+import { useNavigate } from 'react-router-dom';
 
-const TodoItem = ({ todo, setVisible, removeTodo}) => {
+const TodoItem = ({todo, editTodo, setVisible, deleteTodo}) => {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
-    removeTodo = () => {
-        dispatch(deleteTodo(todo.id))
+    const removeHandler = (id) => {
+        setVisible(true)
+        deleteTodo(id)
     }
 
-    const onChangeHandler = (e) => {
-        dispatch(toggleTodo(todo.id))
-    } 
+    const editHandler = () => {
+        editTodo(todo)
+        navigate('/edit');
+        
+    }
 
     return (
         <div className={todo.completed ?
@@ -25,18 +30,18 @@ const TodoItem = ({ todo, setVisible, removeTodo}) => {
                     <div className={style.description}>{todo.description}</div>
                 </div>
                 <div className={style.date}>
-                    <label>Дата начала: <span>{todo.startDate}</span></label>
-                    <label>Дата окончания: <span>{todo.endDate}</span></label>
+                <span>Дата начала: {todo.startDate}</span>
+                    <span>Дата окончания: {todo.endDate}</span>
                 </div>
             </div>
             <div className={style.buttons}>
                 <label>Выполнена: 
                     <Input checked={todo.completed} 
-                    onChange={(e) => onChangeHandler(e)} 
+                    onChange={() =>  dispatch(toggleTodo(todo.id))} 
                     type='checkbox' />
                 </label>
-                <Button onClick={() => setVisible(true)}>Удалить</Button>
-                <Button className={style.editButton}>Редактировать</Button>
+                <Button onClick={() => removeHandler(todo.id)}>Удалить</Button>
+                <Button onClick={() => editHandler()} className={style.editButton}>Редактировать</Button>
             </div>
         </div>
     )

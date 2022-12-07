@@ -33,7 +33,7 @@
     gap: 10px;
 }
 
-.date label {
+.date span {
     font-size: 14px;
     background: gold;
 }

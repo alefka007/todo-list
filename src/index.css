@@ -16,9 +16,7 @@
 }
 
 
-/*--------------------------------------------------------*/
-
-
+/*---------------------global-style-----------------------*/
 :root {
   --main-fonts: 'Amatic SC', cursive, Arial, sans-serif;
   --bg-color-main: rgba(58, 75, 86, .4);
@@ -32,8 +30,12 @@
 body {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
   font-family: var(--main-fonts);
   background-color: var(--bg-color-main);
   color: var(--primary-color);
+}
+
+
+* {
+  box-sizing: border-box;
 }
