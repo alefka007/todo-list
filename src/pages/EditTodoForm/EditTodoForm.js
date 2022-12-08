@@ -8,10 +8,10 @@ import Alert from '../../components/Alert/Alert';
 import { editTodo } from '../../redux/slices/todoSlice';
 
 const EditTodoForm = ({todo}) => {
-    const [title, setTitle] = useState(todo.title || '');
-    const [description, setDescription] = useState(todo.description || '');
-    const [startDate, setStartDate] = useState(todo.startDate || '');
-    const [endDate, setEndDate] = useState(todo.endDate || '');
+    const [title, setTitle] = useState(todo.title);
+    const [description, setDescription] = useState(todo.description);
+    const [startDate, setStartDate] = useState(todo.startDate);
+    const [endDate, setEndDate] = useState(todo.endDate);
     const [showAlert, setShowAlert] = useState(false);
 
 
